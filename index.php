@@ -4,51 +4,45 @@
     <div id="main">
 
       <!-- post -->
-      <div class="post">
-        <h2><a href="#">フルーツパンナコッタ</a></h2>
+<?php 
+if(have_posts() ) :
+      while(have_posts() ) : the_post(); ?>
+      <div id="post-<?php the_ID();?>" <?php post_class(); ?>>
+<!--      the_permalink記事のパーマリンクを出力-->
+<!--     the_title記事のタイトルを表示-->
+      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <p class="post-meta">
-          <span class="post-date">2012年12月23日</span>
-          <span class="category">Category - <a href="#">ケーキ</a></span>
-          <span class="comment-num"><a href="#">Comment : 0</a></span>
+<!--         the_date記事の日付を表示-->
+          <span class="post-date"><?php echo get_the_date(); ?></span>
+<!--          the_category記事のカテゴリーを表示-->
+          <span class="category">Category-<?php the_category(',') ?></span>
+          <span class="comment-num">
+<!--           comment_popup_linkコメント数を表示-->
+            <?php comments_popup_link('Comment : 0','Comment : 1','Comments : %');?>
+          </span>
         </p>
-
-        <p>
-          <img src="images/cake1.jpg" alt="フルーツパンナコッタ" width="300" height="199" class="alignleft">イタリアでは定番のデザート、パンナコッタ。パンナというのは、イタリア語で「生クリーム」という意味だそうです。そして、コッタというのは「煮た」という意味。生クリームに牛乳や砂糖を加えて、ゼラチンで固めて出来上がったのがパンナコッタです。
-        </p>
-        <p>
-          今日食べたパンナコッタは、フルーツたっぷりでとっても色鮮やか！ひとくち食べてみると … あれ？何だか普通のパンナコッタと違う …。
-        </p>
-        <p>
-          どこかでほんのりチョコレートのフレーバーがするー！パティシエさんに聞いてみたら、こっそりホワイトチョコと、バニラビーンズを加えているとのこと。これがフルーツの酸味とあっていて、とってもおいしいパンナコッタに変身してました ;D
-        </p>
-        <p><a href="#" class="more-link">続きを読む &raquo;</a></p>
+<!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
+        <?php the_content('続きを読む &raquo;'); ?>
+        
       </div>
-      <!-- /post -->
-
-      <!-- post -->
-      <div class="post">
-        <h2><a href="#">いちごショート</a></h2>
-        <p class="post-meta">
-          <span class="post-date">2012年12月13日</span>
-          <span class="category">Category - <a href="#">ケーキ</a></span>
-          <span class="comment-num"><a href="#">Comment : 2</a></span>
-        </p>
-
-        <p>
-          <img src="images/cake2.jpg" alt="イチゴショート" title="イチゴショート" width="300" height="199" class="alignleft">今日はとっても可愛いケーキに出会いました。それは … あの白いショートケーキが可愛らしいピンクに変身した、いちごショートケーキ ;D
-        </p>
-        <p>
-          フルーツの中で、一番大好きなのがイチゴ。普段は真っ白な生クリームの上に、ちょこんと乗っている真っ赤なイチゴ …。でも、今日出会ったケーキは、うっすらピンク色のクリームで包まれていて、イチゴを楽しむためのケーキって感じです！もちろんスポンジの間にも、スライスされたイチゴがたっぷり …。イチゴ好きな私にとっては、これ以上のケーキはありませんでした。
-        </p>
-        <p><a href="#" class="more-link">続きを読む &raquo;</a></p>
+      <?php
+//この部分で記事を表示する処理をしています。
+endwhile;//繰り返し処理終了
+else: ?>
+     <div class="post">
+       <h2>記事はありません</h2>
+       <p>お探しの記事は見つかりませんでした</p>
       </div>
-      <!-- /post -->
-
+      <?php endif;?>
       <!-- pager -->
+<!--      1ページより多かったらtrue（条件分岐）-->
+<?php if($wp_query -> max_num_pages > 1):?>
       <div class="navigation">
-        <div class="alignleft"><a href="#">&laquo; PREV</a></div>
-        <div class="alignright"><a href="#">NEXT &raquo;</a></div>
-      </div>
+<!--       前の（古い）ページ編リンクを表示-->
+        <div class="alignleft"><?php next_posts_link('<< PREV');?></div>
+<!--        次の（新しい）ページへのリンクを表示-->
+        <div class="alignright"><?php previous_posts_link('NEXT >>');?></div>
+        <?php endif; ?>
       <!-- /pager	 -->
 
     </div>

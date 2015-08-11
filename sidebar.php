@@ -1,32 +1,15 @@
-    <!-- sidebar -->
+<!--ウィジェットを表示するコードを記述-->
+        <!-- sidebar -->
     <div id="sidebar">
-
+<?php if(is_active_sidebar('sidebar-1')):
+//sidebar-1に設定してあるウィジェットが表示
+dynamic_sidebar('sidebar-1');
+//ウィジェットが表示されてなければ↓の処理
+else: ?>
       <div class="widget">
-        <h2>Category</h2>
-        <ul>
-          <li><a href="#">ケーキ</a></li>
-          <li><a href="#">コーヒー</a></li>
-        </ul>
+        <h2>No Widget</h2>
+        <p>ウィジェットは設定されていません。</p>
       </div>
-
-      <div class="widget">
-        <h2>Recent Posts</h2>
-        <ul>
-          <li><a href="#">フルーツパンナコッタ</a></li>
-          <li><a href="#">いちごショート</a></li>
-          <li><a href="#">カプチーノ</a></li>
-          <li><a href="#">生チョコレートケーキ</a></li>
-          <li><a href="#">フルーツタルト</a></li>
-        </ul>
-      </div>
-
-      <div class="widget">
-        <h2>Archive</h2>
-        <ul>
-          <li><a href="#">2012年12月</a></li>
-          <li><a href="#">2012年11月</a></li>
-        </ul>
-      </div>
-
-    </div>
+      <?php endif;?>
+</div>
     <!-- /sidebar -->
