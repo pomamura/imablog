@@ -37,7 +37,7 @@ else: ?>
 <!--      1ページより多かったらtrue（条件分岐）-->
 <?php if($wp_query -> max_num_pages > 1):?>
       <div class="navigation">
-<!--       前の（古い）ページ編リンクを表示-->
+<!--       前の（古い）ページへのリンクを表示-->
         <div class="alignleft"><?php next_posts_link('<< PREV');?></div>
 <!--        次の（新しい）ページへのリンクを表示-->
         <div class="alignright"><?php previous_posts_link('NEXT >>');?></div>
