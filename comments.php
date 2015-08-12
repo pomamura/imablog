@@ -7,11 +7,16 @@
   <?php wp_list_comments('avatar_size=55');?>
 </ol>
 <?php endif;?>
+<!--コメントページネーションのタグ-->
+<div class="comment-page-link">
+ <?php paginate_comments_links();?>
+  </div>
+<!--コメントフォームを表示-->
 <?php $args=array(
   'title_reply' => 'Leave a Reply',
   'label_submit' => 'Submit Comment',
   );
 comment_form($args);?>
 
-?>
 </div>
+

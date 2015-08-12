@@ -4,8 +4,7 @@
     <div id="main">
 
       <!-- post -->
-<?php 
-if(have_posts() ) :
+<?php if(have_posts() ) :
       while(have_posts() ) : the_post(); ?>
       <div id="post-<?php the_ID();?>" <?php post_class(); ?>>
 <!--      the_permalink記事のパーマリンクを出力-->
@@ -42,11 +41,15 @@ else: ?>
         <div class="alignleft"><?php next_posts_link('<< PREV');?></div>
 <!--        次の（新しい）ページへのリンクを表示-->
         <div class="alignright"><?php previous_posts_link('NEXT >>');?></div>
-        <?php endif; ?>
+
       <!-- /pager	 -->
 
     </div>
+        <?php endif; ?>
+  
+</div>
+    <?php get_sidebar(); ?>
+
+<?php get_footer(); ?>
     <!-- /main -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>

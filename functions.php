@@ -1,4 +1,4 @@
-<!--サイドバーのウィジェットを使えるようにします。-->
+<!--サイドバーのウィジェットを使えるようにする機能。-->
 <?php
 register_sidebar( array(
 'name' => 'サイドバーウィジェット-1',
@@ -9,4 +9,23 @@ register_sidebar( array(
   'after_widget' => '</div>',
 ) );
 
+?>
+<!--サイトのメインナビゲーションをカスタムメニューで設定する機能-->
+<?php
+//カスタムメニューを有効化
+add_theme_support('menus');
+//カスタムメニューの「場所」を設定するコード
+//header.phpのheader-naviに設定したカスタムメニューを反映させる
+register_nav_menu('header-navi','ヘッダーのナビゲーション');
+//カスタムメニューは複数作れる。footer.phpにwp_nav_menu(array('theme_location'=>'footer-navi'));を書き加えればOK。
+//register_nav_menu( 'footer-navi', 'フッターのナビゲーション' );
+?>
+<!--バグチェックで引っかかった項目-->
+<!--必須：コンテンツ幅が設定されていません。-->
+<?php
+if(!isset($content_width))$content_width=600;
+?>
+<!--RSS2のフィードリンクを表示してくれる機能。-->
+<?php
+add_theme_support('automatic-feed-links');
 ?>
