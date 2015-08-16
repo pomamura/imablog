@@ -1,6 +1,7 @@
 <!--ウィジェットを表示するコードを記述-->
         <!-- sidebar -->
-    <div id="sidebar">
+<!--        横幅指定用のクラスを追加（ページ右側）-->
+    <div id="sidebar" class="col-sm-4" role="complementary">
 <?php if(is_active_sidebar('sidebar-1')):
 //sidebar-1に設定してあるウィジェットが表示
 dynamic_sidebar('sidebar-1');

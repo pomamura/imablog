@@ -1,15 +1,15 @@
 <!--ヘッダー部分の読み込み-->
 <?php get_header(); ?>
 <!-- main -->
-<div id="main">
+<div id="content" class="col-sm-8" role="main">
 <?php if (have_posts()) : // WordPress ループ
 while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 <p class="post-meta">
-<span class="post-date"><?php echo get_the_date(); ?></span>
-<span class="category">Category - <?php the_category(', ') ?></span>
-<span class="comment-num"><?php comments_popup_link('Comment : 0', 'Comment : 1', 'Comments : %'); ?></span>
+<button class="btn btn-default" type="button"><span class="post-date glyphicon glyphicon-calendar"> <?php echo get_the_date(); ?></span></button>
+  <button class="btn btn-default" type="button"><span class="category glyphicon glyphicon-tag">Category - <span class="badge"><?php the_category(', ') ?></span></span></button>
+  <button class="btn btn-default" type="button"><span class="comment-num glyphicon glyphicon-comment"> Comment : <span class="badge"><?php comments_popup_link('0', '1', '%'); ?></span></span></button>
 </p>
 <!--続きを読むを削除し記事全文を表示-->
 <?php the_content(); ?>
@@ -43,11 +43,11 @@ the_author(); ?></a></span>
 <!--previous_post_linkひとつ前の古い記事のリンクを表示-->
 <!--index.phpのprevious_post's'_linkとは別のテンプレートタグなので注意-->
 <?php if( get_previous_post() ): ?>
-<div class="alignleft"><?php previous_post_link('%link', '« %title'); ?></div>
+<div class="alignleft"><button type="button" class="btn btn-default"><?php previous_post_link('%link', '« %title'); ?></button></div>
 <!--next_post_link新しい記事のリンクを表示。-->
 <?php endif;
 if( get_next_post() ): ?>
-<div class="alignright"><?php next_post_link('%link', '%title »'); ?></div>
+  <div class="alignright"><button type="button" class="btn btn-default"><?php next_post_link('%link', '%title »'); ?></button></div>
 <?php endif; ?>
 </div>
 <!-- /post navigation -->
@@ -65,9 +65,9 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 
 
 </div>
-               <!-- sidebarの読み込み -->
+<div id="container" class="row">
     <?php get_sidebar(); ?>
-
-  <!-- footerの読み込み -->
+      </div>
+<div id="container">
 <?php get_footer(); ?>
-  <!-- /footer -->
+</div>

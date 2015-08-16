@@ -1,7 +1,9 @@
 <?php get_header();?>
    
     <!-- main -->
-    <div id="main">
+<!--    横幅指定用のクラスを追加（ページ左側の幅）-->
+<!--   col-sm-768px以上なら8カラムにする(レスポンシブデザイン)-->
+    <div id="content" class="col-sm-8" role="main">
 
       <!-- post -->
 <?php if(have_posts() ) :
@@ -34,22 +36,26 @@ else: ?>
       </div>
       <?php endif;?>
       <!-- pager -->
-<!--      1ページより多かったらtrue（条件分岐）-->
-<?php if($wp_query -> max_num_pages > 1):?>
       <div class="navigation">
-<!--       前の（古い）ページへのリンクを表示-->
-        <div class="alignleft"><?php next_posts_link('<< PREV');?></div>
-<!--        次の（新しい）ページへのリンクを表示-->
-        <div class="alignright"><?php previous_posts_link('NEXT >>');?></div>
-
+      <!--      1ページより多かったらtrue（条件分岐）-->
+<?php if($wp_query -> max_num_pages > 1):?>
+<?php 
+$args = array(
+  'prev_text' => '前へ',     //「前へ」のテキスト。
+  'next_text' => '次へ',   //「次へ」のテキスト
+  'class_name' => 'pagination'  //これはdiv要素のクラスなので必須ではない
+);
+pagenavi($args);
+?>
       <!-- /pager	 -->
-
     </div>
         <?php endif; ?>
-  
-</div>
+ </div>
+<div id="container" class="row">
     <?php get_sidebar(); ?>
-
+      </div>
+<div id="container">
 <?php get_footer(); ?>
+</div>
     <!-- /main -->
-
+ 
