@@ -10,7 +10,7 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 <p class="post-meta">
 <span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
-  <?php the_category(', ') ?>
+  <span class="glyphicon glyphicon-tag"><?php the_category(', ') ?></span>
   <?php comments_popup_link('0', '1', '%'); ?>
 </p>
 <!--続きを読むを削除し記事全文を表示-->
