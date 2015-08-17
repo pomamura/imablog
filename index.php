@@ -31,10 +31,11 @@
       <?php else: // サムネイルを持っていないときの処理 ?>
       <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
       <?php endif; ?>
-      </a> 
+      </a>
+      <br><br>
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
         <?php the_excerpt(); ?>
-        <br>
+        
              <div id="articlenext">
                <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む</a>
              </div>
