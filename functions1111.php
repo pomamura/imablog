@@ -1,3 +1,4 @@
+<!--サイドバーのウィジェットを使えるようにする機能。-->
 <?php
 register_sidebar( array(
 'name' => 'サイドバーウィジェット-1',
@@ -8,7 +9,9 @@ register_sidebar( array(
   'after_widget' => '</div>',
 ) );
 ?>
-  <?php
+
+<!--サイトのメインナビゲーションをカスタムメニューで設定する機能-->
+<?php
 //カスタムメニューを有効化
 add_theme_support('menus');
 //カスタムメニューの「場所」を設定するコード
@@ -17,13 +20,19 @@ register_nav_menu('header-navi','ヘッダーのナビゲーション');
 //カスタムメニューは複数作れる。footer.phpにwp_nav_menu(array('theme_location'=>'footer-navi'));を書き加えればOK。
 //register_nav_menu( 'footer-navi', 'フッターのナビゲーション' );
 ?>
-    <?php
+
+<!--バグチェックで引っかかった項目-->
+<!--必須：コンテンツ幅が設定されていません。-->
+<?php
 if(!isset($content_width))$content_width=600;
 ?>
-      <?php
+<!--RSS2のフィードリンクを表示してくれる機能。-->
+<?php
 add_theme_support('automatic-feed-links');
 ?>
-        <?php
+
+<!--j-queryの読み込み-->
+<?php
 function add_my_scripts() {  
   if(is_admin()) return; //管理画面にはスクリプトは追加しない
   wp_deregister_script( 'jquery');  //デフォルトの jQuery は読み込まない
@@ -34,7 +43,9 @@ function add_my_scripts() {
 //add_action('wp_print_scripts', 'add_my_scripts'); 訂正：以下のフックを使ったほうが良い
 add_action('wp_enqueue_scripts', 'add_my_scripts');
 ?>
-          <?php
+
+<!--* Bootstrapのjsとcssをエンキュー（取り出す）-->
+ <?php
 function my_bootstrap_scripts() {
  
 wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bs/css/bootstrap.min.css');
@@ -45,7 +56,9 @@ wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/bs/js/bo
  
 add_action( 'wp_enqueue_scripts', 'my_bootstrap_scripts' );
 ?>
-            <?php
+
+<!--ページャーの設定-->
+<?php
 function pagenavi($args = array()) {
   //デフォルト値
   $defaults = array(
@@ -92,8 +105,3 @@ function pagenavi($args = array()) {
   
 }
 ?>
-<?php add_theme_support('post-thumbnails'); ?>
-<?php function new_excerpt_more($more) {
-     return '...';
-}
-add_filter('excerpt_more', 'new_excerpt_more');?>

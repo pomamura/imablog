@@ -1,6 +1,4 @@
 <?php get_header();?>
-   
-   
     <!-- main -->
 <!--    横幅指定用のクラスを追加（ページ左側の幅）-->
 <!--   col-sm-768px以上なら8カラムにする(レスポンシブデザイン)-->
@@ -26,18 +24,29 @@
             <?php comments_popup_link('0','1','%');?>
           </span>
         </p>
-<!--        アイキャッチ画像-->
-<?php the_post_thumbnail( array(300,300) ); ?>
+<!--               アイキャッチ-->
+        <a href="<?php the_permalink() ?>" >
+      <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
+      <?php the_post_thumbnail( 'thumb150' ); ?>
+      <?php else: // サムネイルを持っていないときの処理 ?>
+      <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
+      <?php endif; ?>
+      </a> 
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
-        <p><?php the_content('続きを見る'); ?></p>
-        
+        <?php the_excerpt(); ?>
+        <br>
+             <div id="articlenext">
+               <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む</a>
+             </div>
       </div>
       </div>
+             
               
       <?php
 //この部分で記事を表示する処理をしています。
 endwhile;//繰り返し処理終了
 else: ?>
+   
     
      <div class="post">
        <h2>記事はありません</h2>

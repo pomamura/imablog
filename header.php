@@ -15,11 +15,11 @@
 
   <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
-  
+
   <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
     <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
     <?php wp_head();?>
-        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+      <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
 </head>
 
 <!--<body>タグに自動的にクラスを付けてくれるテンプレートタグ-->
@@ -30,7 +30,7 @@
 
     <!-- header -->
     <div id="header" class="clearfix">
-
+<!--logo-->
       <div class="alignleft">
         <h1 id="logo">
 <!--        トップページのurlはhome_urlで取得-->
@@ -41,12 +41,15 @@
           <?php bloginfo('description'); ?>
         </p>
       </div>
-
-
+<!--      search-->
+      <div class="alignright">
+       <?php get_search_form(); ?>
+      </div>
+      
       <!-- Navigation -->
       <nav class="navbar navbar-inverse" role="navigation">
         <!--    トグルとナビゲーションのサイズを適正化-->
-        
+
         <div class="navbar-header">
           <!--     トグルボタンの表示-->
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -58,27 +61,25 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        
-<!--        ナビゲーションメニューがトグルボタンに収納-->
-         <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <!--        ナビゲーションメニューがトグルボタンに収納-->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
           <!--      ナビゲーションバーの出力（固定ページのタイトル）-->
           <!--wp_nav_menu ナビゲーションを表示する-->
           <!--divタグにmenuというクラスがつく-->
-<!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
+          <!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
 
-                                           <?php wp_nav_menu(array('theme_location'=>'header-navi',
+          <?php wp_nav_menu(array('theme_location'=>'header-navi',
                                  'container'=>'ul',
                                   'menu_class'=>'nav navbar-nav'
                                   
                                  ));?>
-                                 
-                                 
-            <!-- /Navigation -->
-          
-      </nav>
-      
-      
-      
-    </div>
 
-    <!-- /header -->
+
+            <!-- /Navigation -->
+
+      </nav>
+
+      </div>
+
+      <!-- /header -->
