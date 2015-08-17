@@ -2,14 +2,16 @@
 <?php get_header(); ?>
 <!-- main -->
 <div id="content" class="col-sm-8" role="main">
+<!--記事の枠線-->
+<div id="test2">
 <?php if (have_posts()) : // WordPress ループ
 while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 <p class="post-meta">
-<button class="btn btn-default" type="button"><span class="post-date glyphicon glyphicon-calendar"> <?php echo get_the_date(); ?></span></button>
-  <button class="btn btn-default" type="button"><span class="category glyphicon glyphicon-tag">Category - <span class="badge"><?php the_category(', ') ?></span></span></button>
-  <button class="btn btn-default" type="button"><span class="comment-num glyphicon glyphicon-comment"> Comment : <span class="badge"><?php comments_popup_link('0', '1', '%'); ?></span></span></button>
+<span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
+  <?php the_category(', ') ?>
+  <?php comments_popup_link('0', '1', '%'); ?>
 </p>
 <!--続きを読むを削除し記事全文を表示-->
 <?php the_content(); ?>
@@ -48,6 +50,7 @@ the_author(); ?></a></span>
 <?php endif;
 if( get_next_post() ): ?>
   <div class="alignright"><button type="button" class="btn btn-default"><?php next_post_link('%link', '%title »'); ?></button></div>
+  
 <?php endif; ?>
 </div>
 <!-- /post navigation -->
@@ -60,6 +63,7 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 <p>お探しの記事は見つかりませんでした。</p>
 </div>
 <?php endif; // WordPress ループ終了 ?>
+  </div>
 <!-- comment area -->
     <!-- /main -->
 
@@ -68,6 +72,6 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 <div id="container" class="row">
     <?php get_sidebar(); ?>
       </div>
-<div id="container">
+
 <?php get_footer(); ?>
-</div>
+

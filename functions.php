@@ -105,3 +105,11 @@ function pagenavi($args = array()) {
   
 }
 ?>
+
+<!--アイキャッチ画像の項目をつける機能-->
+<?php
+function mysetup() {
+add_theme_support( 'post-thumbnails' );
+}
+add_action( 'after_setup_theme', 'mysetup' );
+?>

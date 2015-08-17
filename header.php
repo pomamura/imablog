@@ -44,7 +44,7 @@
 
 
       <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-inverse" role="navigation">
         <!--    トグルとナビゲーションのサイズを適正化-->
         
         <div class="navbar-header">
@@ -65,14 +65,20 @@
           <!--wp_nav_menu ナビゲーションを表示する-->
           <!--divタグにmenuというクラスがつく-->
 <!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
-          <?php wp_nav_menu(array('theme_location'=>'header-navi',
+
+                                           <?php wp_nav_menu(array('theme_location'=>'header-navi',
                                  'container'=>'ul',
                                   'menu_class'=>'nav navbar-nav'
                                   
                                  ));?>
+                                 
+                                 
             <!-- /Navigation -->
           
       </nav>
+      
+      
+      
     </div>
 
     <!-- /header -->
