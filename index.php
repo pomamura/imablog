@@ -16,9 +16,9 @@
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <p class="post-meta">
 <!--         the_date記事の日付を表示-->
-<span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
+<span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?> </span>
 <!--          the_category記事のカテゴリーを表示-->
-          <span class="category"><?php the_category(',') ?></span>
+          <span class="glyphicon glyphicon-tag"><?php the_category(',') ?></span>
           <span class="comment-num">
 <!--           comment_popup_linkコメント数を表示-->
             <?php comments_popup_link('0','1','%');?>
@@ -74,5 +74,6 @@ pagenavi($args);
 <div id="container" class="row">
     <?php get_sidebar(); ?>
       </div>
-
+<div id="container">
 <?php get_footer(); ?>
+</div>
