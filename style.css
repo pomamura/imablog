@@ -17,7 +17,6 @@ License URI: ライセンスの URL
           bootstrap修正
 
 *****************************************/
-
 .alignleft {
   display: inline-block;
   margin-bottom: 20px;
@@ -50,15 +49,16 @@ License URI: ライセンスの URL
   text-align: center;
   color: #9d9d9d;
   opacity: 0.9;
+  bottom: 1px;
 }
-#article {
+#article1 {
   display: block;
   width: 740px;
-  height: 631px;
+  height: 650px;
   margin-bottom: 20px;
   overflow: hidden;
 }
-#test2 {
+#article2 {
   display: block;
   border-bottom: 3px solid #9d9d9d;
   background-color: #fff;
@@ -71,10 +71,14 @@ float: right;
 background-color: #101010;
   opacity: 0.9;
   color: #9d9d9d;
+
 }
 #articlenext a:hover{
-
   color: #fff;
+  opacity: 0.8;
+          transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
 }
 #searchform {
   display: inline-block;
@@ -88,6 +92,39 @@ background-color: #101010;
 }
 #copyright{
 margin: 0;
+}
+/*アイキャッチ*/
+#aikyatti img{
+border: 8px solid #9d9d9d;
+  	display: block;
+	width: 100%;
+	height: auto;
+}
+#aikyatti img:hover{
+opacity: 0.8;
+border: 8px solid #23527c;
+}
+/* ページトップ */
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+}
+#page-top a {
+    background: #101010;
+    text-decoration: none;
+    color: #9d9d9d;
+    opacity: 0.9;
+    text-align: center;
+    display: block;
+}
+#page-top a:hover {
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.8;
+    transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
 }
 /*見出し*/
 

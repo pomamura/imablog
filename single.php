@@ -1,11 +1,9 @@
-<!--ヘッダー部分の読み込み-->
 <?php get_header(); ?>
-<!-- main -->
 <div id="content" class="col-sm-8" role="main">
 <!--記事の枠線-->
-<div id="test2">
 <?php if (have_posts()) : // WordPress ループ
 while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
+<div id="article2">
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 <p class="post-meta">
@@ -56,6 +54,7 @@ if( get_next_post() ): ?>
 <!-- /post navigation -->
 <!--comments.phpを読み込む-->
 <?php comments_template(); ?>
+</div>
 <?php endwhile; // 繰り返し処理終了
 else : // ここから記事が見つからなかった場合の処理 ?>
 <div class="post">
@@ -63,15 +62,18 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 <p>お探しの記事は見つかりませんでした。</p>
 </div>
 <?php endif; // WordPress ループ終了 ?>
-  </div>
+  
+  
 <!-- comment area -->
     <!-- /main -->
-
-
+    <!-- 一番上に戻るボタン-->
+ <p id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"> 一番上に戻る</span></a></p>
 </div>
+
+
 <div id="container" class="row">
     <?php get_sidebar(); ?>
       </div>
-
+<div id="container">
 <?php get_footer(); ?>
-
+</div>

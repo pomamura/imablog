@@ -92,7 +92,11 @@ function pagenavi($args = array()) {
   
 }
 ?>
-<?php add_theme_support('post-thumbnails'); ?>
+<?php 
+add_theme_support('post-thumbnails');
+add_image_size('thumb200', 700, 548, true);//引数,x,y,true
+                       add_image_size('large', 740, 406, true);
+?>
 <?php function new_excerpt_more($more) {
      return '...';
 }

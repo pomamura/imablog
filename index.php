@@ -3,13 +3,12 @@
 <!--    横幅指定用のクラスを追加（ページ左側の幅）-->
 <!--   col-sm-768px以上なら8カラムにする(レスポンシブデザイン)-->
     <div id="content" class="col-sm-8" role="main">
-
       <!-- post -->
             
 <?php if(have_posts() ) :
       while(have_posts() ) : the_post(); ?>
 <!--      記事間の枠線-->
-      <div id="article">
+      <div id="article1">
       <div id="post-<?php the_ID();?>" <?php post_class(); ?>>
 <!--      the_permalink記事のパーマリンクを出力-->
 <!--     the_title記事のタイトルを表示-->
@@ -25,14 +24,16 @@
           </span>
         </p>
 <!--               アイキャッチ-->
-        <a href="<?php the_permalink() ?>" >
+<!--       ？？？画像がレスポンシブできないclass="col-xs-5 col-sm-12"？？？-->
+        <div id="aikyatti"><a href="<?php the_permalink() ?>">
       <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
-      <?php the_post_thumbnail( 'thumb150' ); ?>
+      <?php the_post_thumbnail('large',
+array( 'alt' =>$title, 'title' => $title)); ?>
       <?php else: // サムネイルを持っていないときの処理 ?>
       <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
       <?php endif; ?>
-      </a>
-      <br><br>
+          </a></div>
+      <br>
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
         <?php the_excerpt(); ?>
         
@@ -71,7 +72,10 @@ pagenavi($args);
       <!-- /pager	 -->
     </div>
         <?php endif; ?>
+        <!-- 一番上に戻るボタン-->
+ <p id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"> 一番上に戻る</span></a></p>
  </div>
+
 <div id="container" class="row">
     <?php get_sidebar(); ?>
       </div>

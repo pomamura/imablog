@@ -1,0 +1,23 @@
+8/18
+
+・index.phpのアイキャッチ画像のレスポンシブ対応ができない。
+1,class="col-xs-5 col-sm-12"は画像のサイズがおかしい。テキストがでない。
+2,
+（function.phpでサイズ指定。）
+add_theme_support('post-thumbnails');
+add_image_size('thumb100',100,100,true);
+add_image_size('thumb150',150,150,true);
+（index.phpで引数thumb150を指定）
+the_post_thumbnail('thumb150'
+
+・メニューに検索バーの追加。
+
+・検索後の、カラム落ち修正。
+
+・メニューにアコーディオン機能の設置。
+
+・snsボタンの設置。できたら、ハンバーガーボタン内にも。
+
+・トップに戻るボタンの設置。
+
+・フッター最下部に謎のすきま。
