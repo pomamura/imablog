@@ -54,7 +54,7 @@ License URI: ライセンスの URL
 #article1 {
   display: block;
   width: 740px;
-  height: 650px;
+  height: 700px;
   margin-bottom: 20px;
   overflow: hidden;
 }
@@ -126,6 +126,16 @@ border: 8px solid #23527c;
     -ms-transform: scale(1.03);
     -webkit-transform: scale(1.03);
 }
+/*sns*/
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
 /*見出し*/
 
 h2 {
