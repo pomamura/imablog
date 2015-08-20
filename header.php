@@ -17,9 +17,9 @@
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
 
   <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
-    <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
-    <?php wp_head();?>
       <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+          <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
+    <?php wp_head();?>
 </head>
 
 <!--<body>タグに自動的にクラスを付けてくれるテンプレートタグ-->
@@ -31,7 +31,7 @@
     <!-- header -->
     <div id="header" class="clearfix">
       <!--logo-->
-      <div class="alignleft">
+      <div class="logo">
         <h1 id="logo">
 <!--        トップページのurlはhome_urlで取得-->
 <!--          ブログの名前、紹介分はbloginfoで表示-->
@@ -41,24 +41,23 @@
           <?php bloginfo('description'); ?>
         </p>
       </div>
-     
+
       <!-- Navigation -->
       <nav class="navbar navbar-inverse" role="navigation">
-        <!--    トグルとナビゲーションのサイズを適正化-->
-
+        <!--    トグルとナビゲーションのサイズを最適化-->
         <div class="navbar-header">
           <!--     トグルボタンの表示-->
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <!--               スクリーンリーダーの記述(アクセシビリティ)-->
             <span class="sr-only">toggle navigation</span>
-            <!--                ボタンの横棒の線（３本）-->
+            <!--                ボタンの棒線（３本）-->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
         </div>
 
-        <!--        ナビゲーションメニューがトグルボタンに収納-->
+        <!--        ナビゲーションメニューをトグルボタンに格納-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <!--      ナビゲーションバーの出力（固定ページのタイトル）-->
           <!--wp_nav_menu ナビゲーションを表示する-->
@@ -70,24 +69,24 @@
                                   'menu_class'=>'nav navbar-nav'
                                   
                                  ));?>
-     <!--      search-->
-      <div class="alignright"  class="col-sm-4">
-        <?php get_search_form(); ?>
-      </div>
-<!--      snsボタン-->
-      <div id="sns">
-       <ul class="share-buttons">
-        <li>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fwordpress%2F&t=imablog" title="Share on Facebook" target="_blank"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Facebook.png"></a>
-        </li>
-        <li>
-          <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Flocalhost%2Fwordpress%2F&text=imablog:%20http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Tweet"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Twitter.png"></a>
-        </li>
-        <li>
-          <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Share on Google+"><img src="//localhost/wordpress/wp-content/themes/imablog/images/Google+.png"></a>
-        </li>
-      </ul>
-      </div>
+            <!--      search-->
+            <div class="search">
+              <?php get_search_form(); ?>
+            </div>
+            <!--      snsボタン-->
+            <div id="sns">
+              <ul class="share-buttons">
+                <li>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fwordpress%2F&t=imablog" title="Share on Facebook" target="_blank"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Facebook.png"></a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Flocalhost%2Fwordpress%2F&text=imablog:%20http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Tweet"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Twitter.png"></a>
+                </li>
+                <li>
+                  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Share on Google+"><img src="//localhost/wordpress/wp-content/themes/imablog/images/Google+.png"></a>
+                </li>
+              </ul>
+            </div>
             <!-- /Navigation -->
 
       </nav>

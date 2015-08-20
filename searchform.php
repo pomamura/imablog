@@ -2,7 +2,7 @@
 <!--       トップページのURL→home_url-->
  <form method="get" class="form-search" action="<?php echo home_url('/'); ?>">
   <div class="row">
-    <div class="col-lg-12">
+    <div>
       <div class="input-group">
        <!--         検索のキーワードは「s」というパラメーターで送られる。-->
         <input type="text" class="form-control search-query" value="<?php the_search_query(); ?>" name="s" id="s" placeholder="Search...">

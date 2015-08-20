@@ -36,13 +36,9 @@ add_action('wp_enqueue_scripts', 'add_my_scripts');
 ?>
           <?php
 function my_bootstrap_scripts() {
- 
 wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bs/css/bootstrap.min.css');
- 
 wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/bs/js/bootstrap.min.js', array(), '3.3.5', true );
- 
 }
- 
 add_action( 'wp_enqueue_scripts', 'my_bootstrap_scripts' );
 ?>
             <?php
@@ -89,16 +85,13 @@ function pagenavi($args = array()) {
   //★ ul 要素のクラス名を変更（置換）して出力
   echo str_replace("<ul class='page-numbers'>", "<ul class='pagination'>", $outputs);
   echo '</div>';  
-  
 }
 ?>
-<?php 
+              <?php 
 add_theme_support('post-thumbnails');
 add_image_size('thumb', 700, 406, true);//引数,x,y,true
-add_image_size('thumb150',150,150,true);
-add_image_size('thumb100',100,100,true);
 ?>
-<?php function new_excerpt_more($more) {
+    <?php function new_excerpt_more($more) {
      return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');?>

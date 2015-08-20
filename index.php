@@ -25,17 +25,17 @@
           </span>
         </p>
 <!--               アイキャッチ-->
-<!--       ？？？画像がレスポンシブできないclass="col-xs-5 col-sm-12"？？？-->
-        <div id="aikyatti" class="col-sm-12 col-xs-4"><a href="<?php the_permalink() ?>">
+<!--col-md-(992px≦) col-sm-(768px≦) col-xs-(<768)-->
+        <div id="aikyatti" class="col-md-12 col-sm-12 col-xs-12"><a href="<?php the_permalink() ?>">
       <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
       <?php the_post_thumbnail('thumb'); ?>
       <?php else: // サムネイルを持っていないときの処理 ?>
       <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
       <?php endif; ?>
           </a></div>
-      <br>
+      
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
-        <div class="col-sm-12 col-xs-12"><?php the_excerpt(); ?></div>
+        <div><?php the_excerpt(); ?></div>
             <div id="articlenext">
                <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む</a>
              </div>
@@ -71,8 +71,9 @@ pagenavi($args);
       <!-- /pager	 -->
     
         <?php endif; ?>
-        <!-- 一番上に戻るボタン--></div>
- <p id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"> 一番上に戻る</span></a></p>
+ </div>
+        <!-- 一番上に戻るボタン-->
+ <div id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"></span>  一番上に戻る</a></div>
  </div>
 
 <div id="container" class="row">
