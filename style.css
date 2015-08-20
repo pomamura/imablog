@@ -23,10 +23,10 @@ License URI: ライセンスの URL
   width: auto;
 }
 .alignright {
-  display: inline-block;
-  padding-top: 20px;
+  float: right;
+  padding-top: 10px;
   padding-left: 20px;
-  width: 300px;
+  width: 250px;
   z-index: 999;
 }
 .navbar-inverse {
@@ -103,6 +103,11 @@ border: 8px solid #9d9d9d;
 #aikyatti img:hover{
 opacity: 0.8;
 border: 8px solid #23527c;
+}
+/*sns*/
+#sns{
+  float: right;
+  margin-top: 10px;
 }
 /* ページトップ */
 #page-top {

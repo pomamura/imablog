@@ -41,23 +41,7 @@
           <?php bloginfo('description'); ?>
         </p>
       </div>
-      <!--      search-->
-      <div class="alignright">
-        <?php get_search_form(); ?>
-      </div>
-      <!--      snsボタン-->
-      <img src="images/flat_web_icon_set/color/Facebook.png">
-       <ul class="share-buttons">
-        <li>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fwordpress%2F&t=imablog" title="Share on Facebook" target="_blank"><img src="images/flat_web_icon_set/color/Facebook.png"></a>
-        </li>
-        <li>
-          <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Flocalhost%2Fwordpress%2F&text=imablog:%20http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Tweet"><img src="images/flat_web_icon_set/color/Twitter.png"></a>
-        </li>
-        <li>
-          <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Share on Google+"><img src="images/noimage.png"></a>
-        </li>
-      </ul>
+     
       <!-- Navigation -->
       <nav class="navbar navbar-inverse" role="navigation">
         <!--    トグルとナビゲーションのサイズを適正化-->
@@ -86,8 +70,24 @@
                                   'menu_class'=>'nav navbar-nav'
                                   
                                  ));?>
-
-
+     <!--      search-->
+      <div class="alignright"  class="col-sm-4">
+        <?php get_search_form(); ?>
+      </div>
+<!--      snsボタン-->
+      <div id="sns">
+       <ul class="share-buttons">
+        <li>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fwordpress%2F&t=imablog" title="Share on Facebook" target="_blank"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Facebook.png"></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Flocalhost%2Fwordpress%2F&text=imablog:%20http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Tweet"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Twitter.png"></a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Share on Google+"><img src="//localhost/wordpress/wp-content/themes/imablog/images/Google+.png"></a>
+        </li>
+      </ul>
+      </div>
             <!-- /Navigation -->
 
       </nav>

@@ -94,7 +94,9 @@ function pagenavi($args = array()) {
 ?>
 <?php 
 add_theme_support('post-thumbnails');
-add_image_size('thumb200', 700, 406, true);//引数,x,y,true
+add_image_size('thumb', 700, 406, true);//引数,x,y,true
+add_image_size('thumb150',150,150,true);
+add_image_size('thumb100',100,100,true);
 ?>
 <?php function new_excerpt_more($more) {
      return '...';
