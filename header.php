@@ -24,9 +24,9 @@
 
 <!--<body>タグに自動的にクラスを付けてくれるテンプレートタグ-->
 
-<body <?php body_class();?>>
+<body>
   <!-- 全体をcontainerで囲う-->
-  <div id="wrapper" class="hfeed container">
+  <div id="wrapper" class="container">
 
     <!-- header -->
     <div id="header" class="clearfix">
@@ -35,8 +35,8 @@
         <h1 id="logo">
 <!--        トップページのurlはhome_urlで取得-->
 <!--          ブログの名前、紹介分はbloginfoで表示-->
-						<a href="<?php echo home_url('/'); ?>"><span><?php bloginfo('name'); ?></span></a>
-					</h1>
+          <a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>
+</h1>
         <p id="description">
           <?php bloginfo('description'); ?>
         </p>
@@ -87,7 +87,6 @@
                 </li>
               </ul>
             </div>
-            <!-- /Navigation -->
 
       </nav>
 

@@ -6,11 +6,6 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <div id="article2">
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
-<p class="post-meta">
-<span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
-  <span class="glyphicon glyphicon-tag"><?php the_category(', ') ?></span>
-  <?php comments_popup_link('0', '1', '%'); ?>
-</p>
 <!--続きを読むを削除し記事全文を表示-->
 <?php the_content(); ?>
 <!--投稿画面で複数のページに分ける設定（ページャー）。次ページを指定するタグ。<!--nextpages-->
@@ -53,7 +48,7 @@ if( get_next_post() ): ?>
 </div>
 <!-- /post navigation -->
 <!--comments.phpを読み込む-->
-<?php comments_template(); ?>
+
 </div>
 <?php endwhile; // 繰り返し処理終了
 else : // ここから記事が見つからなかった場合の処理 ?>

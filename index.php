@@ -19,8 +19,8 @@
 <span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?> </span>
 <!--          the_category記事のカテゴリーを表示-->
           <span class="glyphicon glyphicon-tag"><?php the_category(',') ?></span>
-          <span class="comment-num">
 <!--           comment_popup_linkコメント数を表示-->
+           <span class="label label-danger">
             <?php comments_popup_link('0','1','%');?>
           </span>
         </p>
@@ -73,7 +73,7 @@ pagenavi($args);
         <?php endif; ?>
  </div>
         <!-- 一番上に戻るボタン-->
- <div id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"></span>  一番上に戻る</a></div>
+ <div id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"></a></div>
  </div>
 
 <div id="container" class="row">

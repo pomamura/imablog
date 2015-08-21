@@ -13,9 +13,11 @@
   </div>
 <!--コメントフォームを表示-->
 <?php $args=array(
-  'title_reply' => 'Leave a Reply',
-  'label_submit' => 'Submit Comment',
+  'title_reply' => 'コメントをどうぞ',
+  'label_submit' => 'コメントを送信',
+  'id_submit' => 'submit',
   );
+
 comment_form($args);?>
 
 </div>

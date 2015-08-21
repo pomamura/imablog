@@ -9,7 +9,10 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <p class="post-meta">
 <span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
   <span class="glyphicon glyphicon-tag"><?php the_category(', ') ?></span>
-  <?php comments_popup_link('0', '1', '%'); ?>
+<!--           comment_popup_linkコメント数を表示-->
+           <span class="label label-danger">
+            <?php comments_popup_link('0','1','%');?>
+          </span>
 </p>
 <!--続きを読むを削除し記事全文を表示-->
 <?php the_content(); ?>
