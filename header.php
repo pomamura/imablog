@@ -67,7 +67,6 @@
           <?php wp_nav_menu(array('theme_location'=>'header-navi',
                                  'container'=>'ul',
                                   'menu_class'=>'nav navbar-nav'
-                                  
                                  ));?>
             <!--      search-->
             <div class="search">
