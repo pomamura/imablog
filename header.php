@@ -17,8 +17,8 @@
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
 
   <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
-      <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
-          <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+    <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
     <?php wp_head();?>
 </head>
 
@@ -59,16 +59,35 @@
 
         <!--        ナビゲーションメニューをトグルボタンに格納-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <!--      アコーディオン-->
+          <div class="accordion-wrap">
+
+            <section class="accordion-item">
+              <input type="checkbox" id="accordion-one" name="accordion-group">
+              <label for="accordion-one" onclick="">WEB制作 <span class="caret"></span></label>
+<!--                 サブナビゲーションの出力-->
+              <div class="accordion-content">
+                
+                <nav id="sub-navi">
+                  <div class="acordion-width"><?php wp_nav_menu( array( 'header-sub-navi' => 'header-navi' ) ); ?></div>
+                </nav>
+              </div>
+              <!-- .accordion-content -->
+            </section>
+            <!-- .accordion-item -->
+          </div>
+          <!-- .accordion-wrap -->
+          <!--アコーディオン-->
           <!--      ナビゲーションバーの出力（固定ページのタイトル）-->
           <!--wp_nav_menu ナビゲーションを表示する-->
           <!--divタグにmenuというクラスがつく-->
           <!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
-
-          <?php wp_nav_menu(array('theme_location'=>'header-navi',
+          <div class="nav-main"><?php wp_nav_menu(array('theme_location'=>'header-navi',
                                  'container'=>'ul',
                                   'menu_class'=>'nav navbar-nav'
-                                 ));?>
+                                                       ));?></div>
             <!--      search-->
+
             <div class="search">
               <?php get_search_form(); ?>
             </div>
@@ -86,9 +105,7 @@
                 </li>
               </ul>
             </div>
-
       </nav>
 
       </div>
-
       <!-- /header -->

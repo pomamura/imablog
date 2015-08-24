@@ -14,6 +14,7 @@ add_theme_support('menus');
 //カスタムメニューの「場所」を設定するコード
 //header.phpのheader-naviに設定したカスタムメニューを反映させる
 register_nav_menu('header-navi','ヘッダーのナビゲーション');
+register_nav_menu( 'header-sub-navi', 'サブナビゲーション' );
 //カスタムメニューは複数作れる。footer.phpにwp_nav_menu(array('theme_location'=>'footer-navi'));を書き加えればOK。
 //register_nav_menu( 'footer-navi', 'フッターのナビゲーション' );
 ?>
@@ -95,3 +96,39 @@ add_image_size('thumb', 700, 406, true);//引数,x,y,true
      return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');?>
+<?php
+  function scrolltop_button_js(){//途中からトップへ戻るボタン出現
+?>
+<script type="text/javascript">
+    jQuery( function(){
+        var showFlag = false;
+        var topBth = jQuery( '#page-top' );
+        topBth.css( 'bottom', '-100px' );
+        var showFlag = false;
+        //スクロールが200に達したらボタン表示
+        jQuery( window ).scroll( function() {
+            if( jQuery(this).scrollTop() > 200 ){
+                if ( showFlag == false ){
+                    showFlag = true;
+                    topBth.stop().animate( { 'bottom' : '20px' }, 300 );
+                }
+            } else {
+                if( showFlag ){
+                    showFlag = false;
+                    topBth.stop().animate( { 'bottom' : '-100px' }, 300 );
+                }
+            }
+        });
+        //スクロールしてトップ
+        topBth.click( function(){
+            jQuery( 'body,html' ).animate( {
+                scrollTop: 0
+            }, 500 );
+            return false;
+        } );
+    } );
+</script>
+<?php
+    }
+    add_action("wp_head", "scrolltop_button_js");
+?>

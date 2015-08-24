@@ -70,7 +70,7 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 <!-- comment area -->
     <!-- /main -->
     <!-- 一番上に戻るボタン-->
- <p id="page-top"><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-up"></span></a></p>
+
 </div>
 
 

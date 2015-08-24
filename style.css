@@ -17,6 +17,102 @@ License URI: ライセンスの URL
           bootstrap修正
 
 *****************************************/
+/*
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 145%;
+    font-weight: bold;
+}
+    #page-top a {
+        background: #fe56aa;
+        text-decoration: none;
+        color: #fff;
+        width: 100px;
+        padding: 20px 0;
+        text-align: center;
+        display: block;
+        border-radius: 5px;
+    }
+        #page-top a:hover {
+            border-style: none;
+            background: #ff0000;
+        }
+*/
+/*アコーディオン*/
+.nav-main{
+display: inline-block;
+  float: left;
+/*  width: 100%;*/
+}
+.acordion-width{
+  display: block;
+  float: left;
+padding: 5px;
+}
+.accordion-wrap {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  float: left;
+}
+
+.accordion-wrap input[type=checkbox] {
+  display: none;
+}
+
+.accordion-wrap label {
+
+  display: block;
+  padding: 15px;
+  margin-bottom: 0 !important; 
+  font-weight: normal !important;
+}
+
+.accordion-wrap label:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #333;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #101010;
+  padding-left: 10px;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -ms-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.accordion-wrap input[type=checkbox]:checked ~ .accordion-content {
+  max-height: 500px;
+  -webkit-transition: all .7s linear;
+  -moz-transition: all .7s linear;
+  -ms-transition: all .7s linear;
+  -o-transition: all .7s linear;
+  transition: all .7s linear;
+}
+
+.accordion-wrap input[type=checkbox]:checked ~ label {
+  background: #101010;
+}
+
+ol, ul {
+    display: block;
+    list-style-type: none;
+}
+ul, menu, dir {
+    -webkit-padding-start: 0 !important;
+}
+/*
+.acordion-width ol, ul a{
+  margin-left: -40px;
+  color: #fff;
+}
+*/
 /*ナビゲーションメニュー（bsカスタマイズ）*/
 .navbar-inverse{
   color: #fff !important;
@@ -166,15 +262,6 @@ a span {
   padding-left: 0;
 }
 
-/*sns*/
-
-#sns {
-  display: inline-block;
-  float: right;
-  margin-top: 10px;
-  padding-right: 15px;
-}
-
 /* ページトップ */
 
 #page-top {
@@ -193,14 +280,19 @@ a span {
 #page-top a:hover {
   text-decoration: none;
   color: #fff;
-  opacity: 0.8;
   transform: scale(1.03);
   -ms-transform: scale(1.03);
   -webkit-transform: scale(1.03);
+  background: #d9534f;
 }
 
 /*sns*/
-
+#sns {
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  padding-right: 15px;
+}
 ul.share-buttons {
   list-style: none;
   padding: 0;
