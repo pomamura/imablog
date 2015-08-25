@@ -17,76 +17,62 @@ License URI: ライセンスの URL
           bootstrap修正
 
 *****************************************/
-/*
-#page-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 145%;
-    font-weight: bold;
+
+
+/*フォント*/
+
+* {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
-    #page-top a {
-        background: #fe56aa;
-        text-decoration: none;
-        color: #fff;
-        width: 100px;
-        padding: 20px 0;
-        text-align: center;
-        display: block;
-        border-radius: 5px;
-    }
-        #page-top a:hover {
-            border-style: none;
-            background: #ff0000;
-        }
-*/
-/*アコーディオン*/
-.nav-main{
-display: inline-block;
+
+/*アコーディオン(メニューバー)*/
+
+.nav-main {
+  display: inline-block;
   float: left;
-/*  width: 100%;*/
+  /*  width: 100%;*/
 }
-.acordion-width{
+.acordion-width {
   display: block;
   float: left;
-padding: 5px;
+  padding: 5px;
 }
 .accordion-wrap {
   font-family: Arial, sans-serif;
   font-size: 14px;
   float: left;
 }
-
 .accordion-wrap input[type=checkbox] {
   display: none;
 }
-
 .accordion-wrap label {
-
   display: block;
   padding: 15px;
-  margin-bottom: 0 !important; 
+  margin-bottom: 0 !important;
   font-weight: normal !important;
 }
-
 .accordion-wrap label:hover {
   cursor: pointer;
   color: #fff;
   background-color: #333;
 }
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  background: #101010;
+  background: #fff;
+  width: 150px;
+  position: absolute;
+  margin-top: 0;
   padding-left: 10px;
+  z-index: 999;
+  border-radius: 4px;
+  border: 1px solid #000;
   -webkit-transition: all .5s linear;
   -moz-transition: all .5s linear;
   -ms-transition: all .5s linear;
   -o-transition: all .5s linear;
   transition: all .5s linear;
 }
-
 .accordion-wrap input[type=checkbox]:checked ~ .accordion-content {
   max-height: 500px;
   -webkit-transition: all .7s linear;
@@ -95,42 +81,35 @@ padding: 5px;
   -o-transition: all .7s linear;
   transition: all .7s linear;
 }
-
 .accordion-wrap input[type=checkbox]:checked ~ label {
   background: #101010;
 }
+ol,
+ul {
+  display: block;
+  list-style-type: none;
+}
+ul,
+menu,
+dir {
+  -webkit-padding-start: 0 !important;
+}
 
-ol, ul {
-    display: block;
-    list-style-type: none;
-}
-ul, menu, dir {
-    -webkit-padding-start: 0 !important;
-}
-/*
-.acordion-width ol, ul a{
-  margin-left: -40px;
-  color: #fff;
-}
-*/
 /*ナビゲーションメニュー（bsカスタマイズ）*/
-.navbar-inverse{
+
+.navbar-inverse {
   color: #fff !important;
-background-color: #101010 !important;
+  background-color: #101010 !important;
 }
-.navbar-inverse .navbar-nav>li:hover{
-background-color: #333 !important;
- padding-bottom: 2px !important;
+.navbar-inverse .navbar-nav>li:hover {
+  background-color: #333 !important;
+  padding-bottom: 2px !important;
 }
-.navbar-inverse .navbar-nav>li>a{
-color: #fff !important;
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff !important;
 }
 .navbar-inverse .navbar-nav>li>a:hover {
-    color: #fff !important;
-}
-/*フォント*/
-*{
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  color: #fff !important;
 }
 
 /*コメント数*/
@@ -145,7 +124,7 @@ a span {
   color: #fff;
 }
 
-/*コメント*/
+/*コメントフォーム*/
 
 #submit {
   background: #101010;
@@ -175,14 +154,6 @@ a span {
   margin-bottom: 20px;
   width: auto;
 }
-.search {
-  display: block;
-  float: left;
-  padding-top: 10px;
-  padding-left: 20px;
-  width: 230px;
-  z-index: 999;
-}
 .more-link {
   padding: 8px 15px;
   font-size: 20px;
@@ -194,6 +165,9 @@ a span {
 #content {
   padding-left: 0;
 }
+
+/*フッター*/
+
 #footer {
   background-color: #101010;
   border-color: #101010;
@@ -201,12 +175,15 @@ a span {
   color: #fff;
   bottom: 1px;
 }
+#copyright {
+  margin: 0;
+}
 
 /*記事*/
 
 #article1 {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 130px;
   overflow: hidden;
 }
 #article2 {
@@ -215,19 +192,41 @@ a span {
   background-color: #fff;
   margin-bottom: 10px;
 }
+.articleheader {
+  margin: 20px 0;
+}
+
+/*続きを読むボタン*/
+
 #articlenext {
   float: right;
 }
 #articlenext a {
-  background-color: #101010;
+  background-color: #23527c;
   color: #fff;
 }
 #articlenext a:hover {
   color: #fff;
   opacity: 0.8;
+  /*
   transform: scale(1.03);
   -ms-transform: scale(1.03);
   -webkit-transform: scale(1.03);
+*/
+}
+.glyphicon .glyphicon-chevron-right {
+  color: #23527c !important;
+}
+
+/*検索バー*/
+
+.search {
+  display: block;
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 230px;
+  z-index: 999;
 }
 #searchform {
   display: block;
@@ -239,9 +238,6 @@ a span {
   text-align: right;
   z-index: 9999;
 }
-#copyright {
-  margin: 0;
-}
 
 /*アイキャッチ*/
 
@@ -252,17 +248,19 @@ a span {
   height: auto;
   padding-right: -15px;
   padding-left: -15px;
+  border: 5px solid #e0e0e0;
 }
 #aikyatti img:hover {
   opacity: 0.8;
-  border: 8px solid #23527c;
+  border: 5px solid #23527c;
 }
 #aikyatti {
   padding-right: 0;
   padding-left: 0;
+  margin-bottom: 10px;
 }
 
-/* ページトップ */
+/* トップへ戻るボタン */
 
 #page-top {
   position: fixed;
@@ -286,7 +284,8 @@ a span {
   background: #d9534f;
 }
 
-/*sns*/
+/*snsボタン*/
+
 #sns {
   display: inline-block;
   float: right;
@@ -300,11 +299,14 @@ ul.share-buttons {
 ul.share-buttons li {
   display: inline;
 }
-ul.share-buttons li:hover{
+ul.share-buttons li:hover {
   opacity: 0.8;
 }
-#cf7submit{
-  background: #101010;
+
+/*コンタクトフォーム*/
+
+#cf7submit {
+  background: #23527c;
   text-decoration: none;
   color: #fff;
   text-align: center;
@@ -314,8 +316,150 @@ ul.share-buttons li:hover{
   line-height: 1.3333333;
   border-radius: 6px;
 }
-#cf7submit:hover{
+#cf7submit:hover {
   opacity: 0.8;
+}
+
+/*--------------------------------
+記事下SNSボタン
+---------------------------------*/
+
+.share {
+  width: 100%;
+}
+.share h4 {
+  font-size: 120%;
+  text-align: center;
+}
+.sns {
+  margin: 0 auto;
+  text-align: center;
+}
+.sns ul {
+  list-style: none;
+}
+.sns li {
+  float: left;
+  width: 48%;
+  margin: 0 2% 3% 0;
+}
+.sns li a {
+  font-size: 80%;
+  position: relative;
+  display: block;
+  padding: 10px;
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.sns li a:hover {
+  -webkit-transform: translate3d(0px, 5px, 1px);
+  -moz-transform: translate3d(0px, 5px, 1px);
+  transform: translate3d(0px, 5px, 1px);
+  box-shadow: none;
+}
+
+/* ツイッター */
+
+.sns .twitter a {
+  background: #00acee;
+  box-shadow: 0 5px 0 #0092ca;
+}
+.sns .twitter a:hover {
+  background: #0092ca;
+}
+
+/* Facebook */
+
+.sns .facebook a {
+  background: #3b5998;
+  box-shadow: 0 5px 0 #2c4373;
+}
+.sns .facebook a:hover {
+  background: #2c4373;
+}
+
+/* グーグル */
+
+.sns .googleplus a {
+  background: #db4a39;
+  box-shadow: 0 5px 0 #ad3a2d;
+}
+.sns .googleplus a:hover {
+  background: #ad3a2d;
+}
+
+/* はてぶ */
+
+.sns .hatebu a {
+  background: #5d8ac1;
+  box-shadow: 0 5px 0 #43638b;
+}
+.sns .hatebu a:hover {
+  background: #43638b;
+}
+
+/* LINE */
+
+.sns .line a {
+  background: #25af00;
+  box-shadow: 0 5px 0 #219900;
+}
+.sns .line a:hover {
+  background: #219900;
+}
+
+/* Pocket */
+
+.sns .pocket a {
+  background: #f03e51;
+  box-shadow: 0 5px 0 #c0392b;
+}
+.sns .pocket a:hover {
+  background: #c0392b;
+}
+
+/* RSS */
+
+.sns .rss a {
+  background: #ffb53c;
+  box-shadow: 0 5px 0 #e09900;
+}
+.sns .rss a:hover {
+  background: #e09900;
+}
+
+/* Feedly */
+
+.sns .feedly a {
+  background: #87c040;
+  box-shadow: 0 5px 0 #74a436;
+}
+.sns .feedly a:hover {
+  background: #74a436;
+}
+
+/*SNS(PCサイズ)*/
+
+.share {
+  padding-bottom: 10px;
+}
+.sns ul {
+  margin: 0 auto;
+  list-style: none;
+}
+.sns li {
+  width: 23%;
+  margin: 0 2% 3% 0;
+}
+.sns li a {
+  font-size: 75%;
+  padding: 10px 2px;
+}
+.sns li:nth-child(4n) {
+  margin-right: 0;
 }
 
 /*見出し*/
@@ -325,7 +469,7 @@ h2 {
   padding-bottom: 15px;
   color: #101010;
 }
-a:hover{
+a:hover {
   color: #2a6496;
 }
 h2 a {
@@ -333,4 +477,7 @@ h2 a {
 }
 h2 a:hover {
   color: #23527c;
+}
+p {
+  font-size: 18px;
 }

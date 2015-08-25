@@ -33,21 +33,6 @@ the_author(); ?></a></span>
 <?php endif; ?>
 </p>
 </div>
-<!-- post navigation -->
-<div class="navigation">
-<!--previous_post_linkひとつ前の古い記事のリンクを表示-->
-<!--index.phpのprevious_post's'_linkとは別のテンプレートタグなので注意-->
-<?php if( get_previous_post() ): ?>
-<div class="alignleft"><button type="button" class="btn btn-default"><?php previous_post_link('%link', '« %title'); ?></button></div>
-<!--next_post_link新しい記事のリンクを表示。-->
-<?php endif;
-if( get_next_post() ): ?>
-  <div class="alignright"><button type="button" class="btn btn-default"><?php next_post_link('%link', '%title »'); ?></button></div>
-  
-<?php endif; ?>
-</div>
-<!-- /post navigation -->
-<!--comments.phpを読み込む-->
 
 </div>
 <?php endwhile; // 繰り返し処理終了

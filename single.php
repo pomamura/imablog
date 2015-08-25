@@ -6,16 +6,18 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <div id="article2">
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
-<p class="post-meta">
+<div class="articleheader">
 <span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?></span>
   <span class="glyphicon glyphicon-tag"><?php the_category(', ') ?></span>
 <!--           comment_popup_linkコメント数を表示-->
            <span class="label label-danger">
-            <?php comments_popup_link('0','1','%');?>
+             <?php comments_popup_link('0','1','%');?>
           </span>
-</p>
+  </div>
 <!--続きを読むを削除し記事全文を表示-->
 <?php the_content(); ?>
+<!--sns.php読み込み-->
+<?php get_template_part('sns'); //ソーシャルボタン読み込み ?>
 <!--投稿画面で複数のページに分ける設定（ページャー）。次ページを指定するタグ。<!--nextpages-->
 <?php $args=array(
 'before'=>'<div class="page-link">',

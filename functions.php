@@ -88,47 +88,60 @@ function pagenavi($args = array()) {
   echo '</div>';  
 }
 ?>
-              <?php 
-add_theme_support('post-thumbnails');
-add_image_size('thumb', 700, 406, true);//引数,x,y,true
-?>
-    <?php function new_excerpt_more($more) {
-     return '...';
+                <?php 
+function new_excerpt_mblength($length) {
+     return 20;
 }
-add_filter('excerpt_more', 'new_excerpt_more');?>
-<?php
+add_filter('excerpt_mblength', 'new_excerpt_mblength');
+?>
+                  <?php
+function new_excerpt_more($more) {//見出し記事の文末を...にする
+    return '.....';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+?>
+                    <?php
   function scrolltop_button_js(){//途中からトップへ戻るボタン出現
 ?>
-<script type="text/javascript">
-    jQuery( function(){
-        var showFlag = false;
-        var topBth = jQuery( '#page-top' );
-        topBth.css( 'bottom', '-100px' );
-        var showFlag = false;
-        //スクロールが200に達したらボタン表示
-        jQuery( window ).scroll( function() {
-            if( jQuery(this).scrollTop() > 200 ){
-                if ( showFlag == false ){
-                    showFlag = true;
-                    topBth.stop().animate( { 'bottom' : '20px' }, 300 );
-                }
-            } else {
-                if( showFlag ){
-                    showFlag = false;
-                    topBth.stop().animate( { 'bottom' : '-100px' }, 300 );
-                }
-            }
-        });
-        //スクロールしてトップ
-        topBth.click( function(){
-            jQuery( 'body,html' ).animate( {
-                scrollTop: 0
-            }, 500 );
-            return false;
-        } );
-    } );
-</script>
-<?php
+                      <script type="text/javascript">
+                        jQuery(function() {
+                          var showFlag = false;
+                          var topBth = jQuery('#page-top');
+                          topBth.css('bottom', '-100px');
+                          var showFlag = false;
+                          //スクロールが200に達したらボタン表示
+                          jQuery(window).scroll(function() {
+                            if (jQuery(this).scrollTop() > 200) {
+                              if (showFlag == false) {
+                                showFlag = true;
+                                topBth.stop().animate({
+                                  'bottom': '20px'
+                                }, 300);
+                              }
+                            } else {
+                              if (showFlag) {
+                                showFlag = false;
+                                topBth.stop().animate({
+                                  'bottom': '-100px'
+                                }, 300);
+                              }
+                            }
+                          });
+                          //スクロールしてトップ
+                          topBth.click(function() {
+                            jQuery('body,html').animate({
+                              scrollTop: 0
+                            }, 500);
+                            return false;
+                          });
+                        });
+
+                      </script>
+                      <?php
     }
     add_action("wp_head", "scrolltop_button_js");
+?>
+              <?php 
+add_theme_support('post-thumbnails');
+add_image_size('thumb', 700, 406,true);//引数,x,y,true
 ?>

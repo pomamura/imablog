@@ -14,7 +14,7 @@
 <!--      the_permalink記事のパーマリンクを出力-->
 <!--     the_title記事のタイトルを表示-->
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <p class="post-meta">
+       <div class="articleheader">
 <!--         the_date記事の日付を表示-->
 <span class="post-date glyphicon glyphicon-calendar"><?php echo get_the_date(); ?> </span>
 <!--          the_category記事のカテゴリーを表示-->
@@ -23,7 +23,7 @@
            <span class="label label-danger">
              <?php comments_popup_link('0','1','%');?>
           </span>
-        </p>
+        </div>
 <!--               アイキャッチ-->
 <!--col-md-(992px≦) col-sm-(768px≦) col-xs-(<768)-->
         <div id="aikyatti" class="col-md-12 col-sm-12 col-xs-12"><a href="<?php the_permalink() ?>">
@@ -37,7 +37,7 @@
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
         <div><?php the_excerpt(); ?></div>
             <div id="articlenext">
-               <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む</a>
+               <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
              </div>
       </div>
       </div>
