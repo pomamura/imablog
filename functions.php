@@ -142,6 +142,15 @@ add_filter('excerpt_more', 'new_excerpt_more');
     add_action("wp_head", "scrolltop_button_js");
 ?>
               <?php 
+//add_theme_support('post-thumbnails');//アイキャッチ項目追加
+//add_image_size('thumb', 700, 406,true);//引数,x,y,true
 add_theme_support('post-thumbnails');
-add_image_size('thumb', 700, 406,true);//引数,x,y,true
+set_post_thumbnail_size(745, 400, true);
+?>
+<?php
+add_filter( 'wp_list_categories', 'my_list_categories', 10, 2 );
+function my_list_categories( $output, $args ) {
+  $output = preg_replace('/<\/a>\s*\((\d+)\)/',' <span class="count">$1</span></a>',$output);
+  return $output;
+}
 ?>

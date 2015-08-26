@@ -66,7 +66,7 @@ License URI: ライセンスの URL
   padding-left: 10px;
   z-index: 999;
   border-radius: 4px;
-  border: 1px solid #000;
+  border: 1px solid #101010;
   -webkit-transition: all .5s linear;
   -moz-transition: all .5s linear;
   -ms-transition: all .5s linear;
@@ -110,6 +110,27 @@ dir {
 }
 .navbar-inverse .navbar-nav>li>a:hover {
   color: #fff !important;
+}
+
+/*検索バー*/
+
+.search {
+  display: block;
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 230px;
+  z-index: 999;
+}
+#searchform {
+  display: block;
+  position: absolute;
+  margin-top: 50px;
+  top: 3.2em;
+  right: 7.8%;
+  width: 300px;
+  text-align: right;
+  z-index: 9999;
 }
 
 /*コメント数*/
@@ -183,7 +204,7 @@ a span {
 
 #article1 {
   display: block;
-  margin-bottom: 130px;
+  margin-bottom: 50px;
   overflow: hidden;
 }
 #article2 {
@@ -218,46 +239,27 @@ a span {
   color: #23527c !important;
 }
 
-/*検索バー*/
-
-.search {
-  display: block;
-  float: left;
-  padding-top: 10px;
-  padding-left: 20px;
-  width: 230px;
-  z-index: 999;
-}
-#searchform {
-  display: block;
-  position: absolute;
-  margin-top: 50px;
-  top: 3.2em;
-  right: 7.8%;
-  width: 300px;
-  text-align: right;
-  z-index: 9999;
-}
-
 /*アイキャッチ*/
 
-#aikyatti img {
+#eyecatch {
+  padding-right: 0;
+  padding-left: 0;
+  margin-bottom: 10px;
+  height: 50%;
+}
+#eyecatch img {
   border: 8px solid #fff;
-  display: block;
+  /*  display: block;*/
   width: 100%;
   height: auto;
   padding-right: -15px;
   padding-left: -15px;
   border: 5px solid #e0e0e0;
+  margin-bottom: 10px;
 }
-#aikyatti img:hover {
+#eyecatch img:hover {
   opacity: 0.8;
   border: 5px solid #23527c;
-}
-#aikyatti {
-  padding-right: 0;
-  padding-left: 0;
-  margin-bottom: 10px;
 }
 
 /* トップへ戻るボタン */
@@ -320,9 +322,7 @@ ul.share-buttons li:hover {
   opacity: 0.8;
 }
 
-/*--------------------------------
-記事下SNSボタン
----------------------------------*/
+/*記事下SNSボタン*/
 
 .share {
   width: 100%;
@@ -460,6 +460,78 @@ ul.share-buttons li:hover {
 }
 .sns li:nth-child(4n) {
   margin-right: 0;
+}
+
+/*WordPress Popular Postsプラグイン*/
+
+ul.wpp-list li {
+  border-bottom: #ccc 1px dotted;
+}
+ul.wpp-list li:last-child {
+  border-bottom: #fff 0px dotted;
+}
+#popular-post {
+  counter-reset: wpp-ranking;
+}
+#popular-post ul li:before {
+  color: #fff;
+  content: counter(wpp-ranking, decimal);
+  counter-increment: wpp-ranking;
+  text-align: center;
+  opacity: 0.999;
+  font-size: 11px;
+  float: left;
+  line-height: 18px;
+  width: 18px;
+  height: 18px;
+  background-color: #00a0e9;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+#popular-post li img {
+  float: left;
+  margin-left: -18px;
+}
+#popular-post li img:hover {
+  
+}
+
+/*カテゴリ名と件数*/
+
+.count {
+  color: #fff;
+  text-align: center;
+  padding: 0 8px;
+  float: right;
+  background: #101010;
+  border-radius: 3px;
+}
+.cat-item-1 a:hover span,
+.cat-item-2 a:hover span,
+.cat-item-3 a:hover span,
+.cat-item-4 a:hover span,
+.cat-item-5 a:hover span,
+.cat-item-6 a:hover span,
+.cat-item-7 a:hover span,
+.cat-item-8 a:hover span,
+.cat-item-9 a:hover span,
+.cat-item-10 a:hover span {
+  background: #00a0e9;
+  transition: 0.5s;
+}
+.cat-item-1 a,
+.cat-item-2 a,
+.cat-item-3 a,
+.cat-item-4 a,
+.cat-item-5 a,
+.cat-item-6 a,
+.cat-item-7 a,
+.cat-item-8 a,
+.cat-item-9 a,
+.cat-item-10 a {
+  display: block;
+  text-decoration: none;
+  padding: 5px 5px;
 }
 
 /*見出し*/

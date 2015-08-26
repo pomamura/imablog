@@ -26,18 +26,18 @@
         </div>
 <!--               アイキャッチ-->
 <!--col-md-(992px≦) col-sm-(768px≦) col-xs-(<768)-->
-        <div id="aikyatti" class="col-md-12 col-sm-12 col-xs-12"><a href="<?php the_permalink() ?>">
+        <div id="eyecatch" class="col-md-12 col-sm-12 col-xs-12"><a href="<?php the_permalink() ?>">
       <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
-      <?php the_post_thumbnail('thumb'); ?>
+      <?php the_post_thumbnail(); ?>
       <?php else: // サムネイルを持っていないときの処理 ?>
       <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
       <?php endif; ?>
-          </a></div>
+          </a>
       
 <!--        the_contentコンテンツ（画像を含む）、続きを読むのリンクを表示-->
         <div><?php the_excerpt(); ?></div>
             <div id="articlenext">
-               <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+               <a href="<?php the_permalink() ?>" class="btn btn-default btn-lg">続きを読む <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></div>
              </div>
       </div>
       </div>

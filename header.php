@@ -65,10 +65,11 @@
             <section class="accordion-item">
               <input type="checkbox" id="accordion-one" name="accordion-group">
               <label for="accordion-one" onclick="">WEB制作 <span class="caret"></span></label>
-<!--                 サブナビゲーションの出力-->
+<!--                 サブナビゲーション-->
               <div class="accordion-content">
                 
                 <nav id="sub-navi">
+<!--                 カテゴリーを出力-->
                   <div class="acordion-width"><?php wp_nav_menu( array( 'header-sub-navi' => 'header-navi' ) ); ?></div>
                 </nav>
               </div>
