@@ -28,6 +28,8 @@
 <!--col-md-(992px≦) col-sm-(768px≦) col-xs-(<768)-->
         <div id="eyecatch" class="col-md-12 col-sm-12 col-xs-12"><a href="<?php the_permalink() ?>">
       <?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
+<!--      autopostthumbnailを有効にしたら画像のトリミングが可能-->
+<!--     幅が745px以上ないと、高さがそのまま出る-->
       <?php the_post_thumbnail(); ?>
       <?php else: // サムネイルを持っていないときの処理 ?>
       <img src="<?php echo get_template_directory_uri(); ?>/images/noimage.png" alt="no image" title="no image" width="300" height="221">
