@@ -18,6 +18,8 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <?php the_content(); ?>
 <!--sns.php読み込み-->
 <?php get_template_part('sns'); //ソーシャルボタン読み込み ?>
+<!--関連記事（YARPPプラグイン）の読み込み-->
+<?php related_posts(); ?>
 <!--投稿画面で複数のページに分ける設定（ページャー）。次ページを指定するタグ。<!--nextpages-->
 <?php $args=array(
 'before'=>'<div class="page-link">',
@@ -53,7 +55,6 @@ the_author(); ?></a></span>
 <?php endif;
 if( get_next_post() ): ?>
   <div class="alignright"><button type="button" class="btn btn-default"><?php next_post_link('%link', '%title »'); ?></button></div>
-  
 <?php endif; ?>
 </div>
 <!-- /post navigation -->
@@ -67,14 +68,7 @@ else : // ここから記事が見つからなかった場合の処理 ?>
 <p>お探しの記事は見つかりませんでした。</p>
 </div>
 <?php endif; // WordPress ループ終了 ?>
-  
-  
-<!-- comment area -->
-    <!-- /main -->
-    <!-- 一番上に戻るボタン-->
-
 </div>
-
 
 <div id="container" class="row">
     <?php get_sidebar(); ?>
