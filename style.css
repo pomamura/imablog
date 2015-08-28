@@ -462,3 +462,8 @@ h2 a:hover {
 p {
   font-size: 18px;
 }
+
+.yarpp-thumbnails-horizontal{
+  display: block;
+margin-top: 70px;
+}

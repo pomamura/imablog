@@ -1,3 +1,4 @@
+<section id="share" class="article-bottom">
 <h2>シェアする</h2>
 <a class="facebook-iine" href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>&amp;t=<?php the_title(); ?>"
 onClick="window.open(encodeURI(decodeURI(this.href)),
@@ -21,3 +22,4 @@ Facebook</a>
 <a class="gplusbtn" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="window.open(this.href, 'Gwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">Google＋</a>
 
 <a class="feedlybtn" href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp://value-innovator.biz/feed' target='blank'>Feedly</a>
+</section>
