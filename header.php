@@ -17,7 +17,9 @@
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
 
   <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
+<!--   [style.css]sheet_uriのURIを取得-->
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
     <?php wp_head();?>
 </head>
@@ -83,19 +85,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
               <!--      snsボタン-->
-              <div id="sns">
-                <ul class="share-buttons">
-                  <li>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fwordpress%2F&t=imablog" title="Share on Facebook" target="_blank"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Facebook.png"></a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Flocalhost%2Fwordpress%2F&text=imablog:%20http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Tweet"><img src="//localhost/wordpress/wp-content/themes/imablog/images/flat_web_icon_set/color/Twitter.png"></a>
-                  </li>
-                  <li>
-                    <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%2Fwordpress%2F" target="_blank" title="Share on Google+"><img src="//localhost/wordpress/wp-content/themes/imablog/images/Google+.png"></a>
-                  </li>
-                </ul>
-              </div>
+              <i class=" icon-thumbs-up (&#xf164;)"></i>
             </ul>
           </div>
           <!-- /.navbar-collapse -->
