@@ -15,11 +15,13 @@
 
   <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
-
-  <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
-<!--   [style.css]sheet_uriのURIを取得-->
+<?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
+<!--  octicons(GITHUB)のWEBフォントCSS-->
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/octicons/octicons.css" media="screen">
+    <!--   [style.css]sheet_uriのURIを取得-->
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/icomoon/style.css">
+    <!--    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
     <!--  ※重要！function.phpから読み込んだjsを出力する際に必要。あと、プラグイン使用時など-->
     <?php wp_head();?>
 </head>
@@ -44,7 +46,7 @@
         </p>
       </div>
       <!--ナビゲーションメニュー-->
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -66,27 +68,42 @@
                   <?php wp_nav_menu( array( 'header-sub-navi' => 'header-navi' ) ); ?>
                 </ul>
               </li>
-              </ul>
-              <!--        メインメニュー出力-->
-              <!--wp_nav_menu ナビゲーションを表示する-->
-              <!--divタグにmenuというクラスがつく-->
-              <!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
-              
-                <?php wp_nav_menu(array('theme_location'=>'header-navi',
+            </ul>
+            <!--        メインメニュー出力-->
+            <!--wp_nav_menu ナビゲーションを表示する-->
+            <!--divタグにmenuというクラスがつく-->
+            <!--          事前にメニューを作成しておく必要がある。外観→メニュー-->
+
+            <?php wp_nav_menu(array('theme_location'=>'header-navi',
                                  'container'=>'ul',
                                   'menu_class'=>'nav navbar-nav'
                                    ));?>
-              
-            
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <?php get_search_form(); ?>
-              </div>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-              <!--      snsボタン-->
-              <i class=" icon-thumbs-up (&#xf164;)"></i>
-            </ul>
+
+
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <?php get_search_form(); ?>
+                </div>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <ul class="share-buttons">
+                  <li>
+                    <div class="sns_circle facebook"><span class="icon-facebook"></span>
+                      <a href="https://www.facebook.com/shinnosuke.imamura.10"></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="sns_circle twitter"><span class="icon-twitter"></span>
+                      <a href="https://twitter.com/1122ima"></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="sns_circle google"><span class="icon-google-plus"></span>
+                      <a href="https://plus.google.com/117234936237259021010/about"></a>
+                    </div>
+                  </li>
+                </ul>
+              </ul>
           </div>
           <!-- /.navbar-collapse -->
         </div>

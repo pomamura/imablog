@@ -18,6 +18,7 @@ while (have_posts()) : the_post(); // 繰り返し処理開始 ?>
 <?php the_content(); ?>
 <!--sns.php読み込み-->
 <?php get_template_part('sns'); //ソーシャルボタン読み込み ?>
+<hr style="visibility:hidden;clear:both;" />
 <!--関連記事（YARPPプラグイン）の読み込み-->
 <?php related_posts(); ?>
 <!--投稿画面で複数のページに分ける設定（ページャー）。次ページを指定するタグ。<!--nextpages-->

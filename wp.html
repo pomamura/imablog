@@ -1,0 +1,315 @@
+<h3><span class="glyphicon glyphicon-check" aria-hidden="true"></span>header.phpを作成する。</h3>
+<hr style="visibility:hidden;clear:both;" />
+<h3>まずはhead部分から作っていきます。下記サンプルコードは、htmlをwordpressのテンプレートタグに書き換えたものです。</h3>
+<hr style="visibility:hidden;clear:both;" />
+[html]
+<!DOCTYPE html>
+<html <?php language_attributes();?>>
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <?php wp_title('|',true,'right'); bloginfo('name');?>
+  </title>
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
+  　<?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
+  <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+    <?php wp_head();?>
+</head>
+[/html]
+  <hr style="visibility:hidden;clear:both;" />
+<h3><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>ファビコンの作り方。</h3> 
+<p>ファビコンとして設定したい画像を用意します。拡張子はfavicon.icoにしておいて下さい。 テーマ内のimagesフォルダにファビコンの画像を追加し、下記の記述をします。</p>
+<hr style="visibility:hidden;clear:both;" />
+[html]
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
+[/html]
+ <hr style="visibility:hidden;clear:both;" />
+  <h3><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>URIとURLの違いは？</h3>
+  <p>URLを拡張したものをURIと呼び、統一資源識別子とも呼ばれます。</p>
+<hr style="visibility:hidden;clear:both;" />
+<div style="border:1px dotted #000000; padding:20px;">
+<h3>TEMPLATE TAG</h3> 
+<hr style="visibility:hidden;clear:both;" />
+<p>・get_template_directory_uri()･･･テーマのディレクトリ（ファイル）までの場所を指定します。
+ </p>
+<p>・language_attributes()･･･lang属性(lang="ja")を出力します。自作テーマを公式テーマとして登録する場合必須のタグです。個人での使用が目的なら不要です。</p>
+<p>・wp_title('|',true,'right'); bloginfo('name')･･･ページタイトルと、ブログ名の間に「|」で区切りを入れています。</p>
+<p>・wp_enqueue_script("comment-reply")･･･コメントの返信をクリックすると、コメントフォームに移動します。</p>
+<p>・get_stylesheet_uri()･･･テーマのスタイルシートのURIを返す関数です。style.cssのパスを読み込みます。</p>
+<p>・wp_head()･･･RSSフィード情報、function.phpのjsやcss、プラグインを読み込みます。</p>
+</div>
+<hr style="visibility:hidden;clear:both;" />
+ <h3>body要素上部にヘッダー部分を作ります。</h3>
+<hr style="visibility:hidden;clear:both;" />
+  [html]
+        <h1>
+          <a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>
+        </h1>
+        <p id="description">
+          <?php bloginfo('description'); ?>
+        </p>
+  [/html]
+<hr style="visibility:hidden;clear:both;" />
+<div style="border:1px dotted #000000; padding:20px;">
+<h3>TEMPLATE TAG</h3> 
+<hr style="visibility:hidden;clear:both;" />
+  <p>・home_url('/')…ブログのホーム（トップページ）のURIを返します。</p>
+  <p>・bloginfo('name')…ブログのタイトルを表示します。</p>
+  <p>・bloginfo('description')…ブログの紹介文を表示します。</p>
+</div>
+<hr style="visibility:hidden;clear:both;" />
+<h3>ナビゲーションメニューの部分を作ります。<a href="http://getbootstrap.com/components/#navbar" target="_blank">Bootstrap/Navbar</a>のスタイルを適応しています。</h3>
+<h5>※あらかじめ、bootstrapのスタイルシートを読み込んでおく必要があります。</h5>
+<hr style="visibility:hidden;clear:both;" />
+  [html]
+  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WEB制作<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <?php wp_nav_menu( array( 'header-sub-navi' => 'header-navi' ) ); ?>
+                </ul>
+              </li>
+              </ul>
+                <?php wp_nav_menu(array('theme_location'=>'header-navi','container'=>'ul','menu_class'=>'nav navbar-nav'));?>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <?php get_search_form(); ?>
+              </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <i class=" icon-thumbs-up (&#xf164;)"></i>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  [/html]
+<hr style="visibility:hidden;clear:both;" />
+<div style="border:1px dotted #000000; padding:20px;">
+<h3>TEMPLATE TAG</h3> 
+<hr style="visibility:hidden;clear:both;" />
+  <p>・wp_nav_menu()…ダッシュボードの外観→メニューで作成したカスタムメニューを出力します。</p>
+</div>
+  <h4>＜function.phpに以下を記述し、カスタムメニューの有効化をする＞</h4>
+  [html]
+    <?php
+add_theme_support('menus');
+register_nav_menu('header-navi','ヘッダーのナビゲーション');
+register_nav_menu( 'header-sub-navi', 'サブナビゲーション' );
+[/html]
+<p>・register_nav_menu()…カスタムメニューを追加します。</p>
+<p>フッターのナビゲーションを追加したいときは、
+  ＜footer.php＞
+  [html]
+  <?php wp_nav_menu(array('theme_location'=>'footer-navi')); ?>
+  [/html]
+  ＜function.php＞
+  [html]
+  <?php register_nav_menu( 'footer-navi', 'フッターのナビゲーション' );
+[/html]
+を記述します。</p>
+[html]
+  <?php wp_nav_menu(array('theme_location'=>'header-navi','container'=>'ul','menu_class'=>'nav navbar-nav'));?>
+[/html]
+  <h4>パラメータの指定。</h4>
+  <p>・'theme_location'=>'header-navi'･･･テーマの場所。ヘッダーのナビゲーションを指定しています。</p>
+  <p>・'container'=>'ul'…ulタグでラップします。初期値→div。</p>
+  <p>・'menu_class'=>'nav navbar-nav'･･･nav navbarでクラスの指定を指定をします。</p>
+
+
+  <p>・get_search_form()･･･search.phpの検索フォームを出力します。インクルードタグ。</p>
+  
+  ◎index.php
+  <?php get_header();?>
+  header.phpを読み込みます。インクルードタグ。
+  ・<?php if (have_posts()) : ?>
+ <?php while (have_posts()) : the_post(); ?>
+ コンテンツを表示します。
+ <?php endwhile; ?><?php else : ?>
+ コンテンツがない時に表示します。
+<?php endif; ?>
+  投稿のループ処理です。
+  ・<div id="post-<?php the_ID();?>" <?php post_class(); ?>>
+  投稿毎に自動でIDとclassを割り当てます。
+  cssで装飾したい時に便利です。
+  ・<?php the_permalink(); ?>
+  ループの中で投稿されているパーマリンクを表示します。ループ内でのみ有効です。
+  ・<?php the_title(); ?>
+  現在の投稿タイトルを表示するテンプレートタグです。ループ外では、get_the_title() を使います。
+  ・<?php echo get_the_date(); ?>
+  投稿の日付を出力するテンプレートタグです。
+  ・<?php the_category(',') ?>
+  投稿の記事が属するカテゴリーを出力するテンプレートタグです。
+  <?php comments_popup_link('コメントはありません。','1件です','%件です。');?>
+  コメントの件数によって、左から順にパラメーターの内容が表示されます。
+  「コメントが０件の場合」
+  →コメントがありません。
+  「１件の場合」
+  →１件です。
+  「２件以上の場合」
+  %件です。%の部分はコメントの件数に置き換えられます。
+  ・<?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?>
+     <?php the_post_thumbnail(); ?>
+      アイキャッチ画像を設定した場合表示する。ループ。
+      <?php else: //サムネイルを持っていない時の処理 ?>
+      <img src="<?php echo get_template_directory_uri(); ?>/images/画像ファイルを指定">
+      アイキャッチ画像を設定してない場合表示する。
+      <?php endif; ?>
+  ※あらかじめ、function.phpでアイキャッチの項目を追加しておく必要があります。
+  add_theme_support('post-thumbnails');
+  アイキャッチのサイズを指定したい場合は、
+  set_post_thumbnail_size(x(px), y(px), true);
+  trueは指定のサイズで切り抜き、falseはそのまま縮小されます。
+  <?php if($wp_query -> max_num_pages > 1):?>
+  ページネーション。
+  １ページより多かったら表示します。trueの条件分岐。
+  <?php 
+$args = array(
+  'prev_text' => '前へ',     //「前へ」のテキストを表示します。
+  'next_text' => '次へ',   //「次へ」のテキストを表示します。
+  'class_name' => 'pagination'  //これはdiv要素のクラスなので必須ではありません。
+);
+pagenavi($args);
+function.phpのpagenavi関数の引数$argsを出力します。
+詳細は、<a href="http://www.webdesignleaves.com/wp/wordpress/45/"> WordPressでプラグインを使わずにページネーションを設置する方法</a>
+?>
+  <?php get_sidebar(); ?>
+  sidebar.phpのテンプレートファイルを読み込みます。
+  <?php get_footer(); ?>
+  footer.phpのテンプレートファイルを読み込みます。
+  
+  ◎single.php
+  投稿した個別ページの専用のファイルです。
+  index.phpの内容をコピーして、必要な箇所だけ書き換えます。
+  ・<?php the_content(); ?>
+  投稿の本文を出力します。必ず、ループ内に記述します。
+  ・<?php get_template_part('sns'); //ソーシャルボタン読み込み ?>
+  sns.phpを読み込みます。
+  ソーシャルボタンを表示させたい時に作っておくと便利です。
+  ・<?php related_posts(); ?>
+  YARPP（プラグイン）の関連記事を読みこませる時に使います。
+  ☆<?php $args=array(
+'before'=>'<div class="page-link">',
+'after'=>'</div>',
+'link_before'=>'<span>',
+'link_after'=>'</span>',
+);
+wp_link_pages($args);
+  ?>
+ 不要なため削除する。
+  ・<?php the_tags('$before','$sep','$after'); ?>
+  記事につけられたタグを表示します。テンプレートタグ。
+  $beforeは、タグの前に表示する文字列。
+  $sepは、タグの間に表示する文字列。
+  $afterは、最後のタグに続けて表示する文字列。初期値では不要です。
+  ・<?php if ( is_multi_author() ): ?>
+  もし複数の投稿者の登録があれば、作成者を表示します。
+  <span class="post-author">作成者 : <a href="<?php echo
+  get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php
+the_author(); ?></a></span>
+ <?php endif; ?>
+  get_author_posts_urlで投稿者ページのurlを取得します。
+  get_the_author_metaで投稿者の情報を取得します。
+  ?php the_author();
+  投稿者名を表示します。
+ ・<?php if( get_previous_post() ): ?>
+<?php previous_post_link('%link', '« %title'); ?>
+previous_post_link()は、現在の投稿から見て日付順でひとつ前の投稿へのリンクを表示します。。
+%linkで、リンク部分を表示させる。
+%titleで、投稿のタイトルを表示させる。
+<?php endif;
+if( get_next_post() ): ?>
+<?php next_post_link('%link', '%title »'); ?>
+次のページがあれば、次ページを表示します。
+<?php endif; ?>
+詳細は、<a href="http://www.understandard.net/wordpress/wp027.html">前後の記事へのナビゲーションカスタマイズメモ</a>
+ <?php comments_template(); ?>
+ コメントテンプレートを読み込みます。
+ 
+  ◎page.php
+  固定ページを呼び出します。
+  これも、index.phpをコピーして必要な箇所だけ記述します。
+  
+  ◎sidebar.php
+  サイドバーを呼び出します。
+  <?php if(is_active_sidebar('サイドバーのID')):
+  サイドバーウィジェットがあるに処理。
+dynamic_sidebar('サイドバーのID');
+else: ?>
+     サイドバーウィジェットがない時に処理。
+      <?php endif;?>
+      function.phpにregister_sidebar()を記述しウィジェットエリアを追加します。ここに、各パラメーターの情報を定義します。
+      詳細は、<a href="http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_sidebar">関数リファレンス/register sidebar</a>
+      
+  ◎footer.php
+  フッターを呼び出します。
+  wp_footer()
+  アクションフックをスタートさせます。</body>タグの直前で使います。
+  アクションフックとは、<a href="http://liginc.co.jp/web/wp/customize/92030">フィルターフックとアクションフックの使い方</a>
+  ◎searchform.php
+  検索フォームを呼び出します。searchform.phpで部品化しておくと便利です。
+[html]
+   <form method="get" class="form-search" action="<?php echo home_url('/'); ?>">
+      <div class="input-group">
+       <!--         検索のキーワードは「s」というパラメーターで送られる。-->
+        <input type="text" class="form-control search-query" value="<?php the_search_query(); ?>" name="s" id="s" placeholder="Search...">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Go"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+</form>
+[/html]
+ echo home_url('/')
+ トップページのURLを呼び出して、最後に「/」をつけます。
+ <input type="text" class="form-control search-query" value="<?php the_search_query(); ?>" name="s" id="s" placeholder="Search...">
+  検索のキーワードは「s」というパラメーターで送られます。
+  検索が行われた時に、そのリクエストの検索クエリを表示します。
+  検索クエリとは、検索クエリはユーザーが検索時に入力する単語・フレーズ（複合語）のことを指します。
+  
+  ◎comments.php
+  <div id="comment-area">
+<?php if(have_comments()):?>
+<h3 id="comments">Comment</h3>
+<ol class="comments-list">
+  <?php wp_list_comments('avatar_size=55');?>
+</ol>
+<?php endif;?>
+<div class="comment-page-link">
+ <?php paginate_comments_links();?>
+  </div>
+<?php $args=array(
+  'title_reply' => 'コメントをどうぞ',
+  'label_submit' => 'コメントを送信',
+  'id_submit' => 'submit',
+  );
+comment_form($args);?>
+</div>
+ wp_list_comments()
+ コメントを表示する一覧を作ります。
+ 表示形式を変えたい場合は、色々なパラメータを設定できます。
+ 今回は、アバターサイズを55に設定しています。
+ 詳細は、<a href="http://bl6.jp/web/wordpress/wp-list-comments-customize/">wp_list_commentsを使ってWordPressのコメント出力をカスタマイズする</a>
+ paginate_comments_links()
+ 現在のページのコメント欄のページネーションを作成します。
+ <?php $args=array(
+  'title_reply' => 'コメントをどうぞ',
+  'label_submit' => 'コメントを送信',
+  'id_submit' => 'submit',
+  );
+comment_form($args);?>
+ コメントフォームを表示します。
+ 詳細は、<a href="http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/paginate_comments_links">関数リファレンス/paginate comments links</a>
+ 
+  ◎style.css
+  スタイルシートを呼び出します。
