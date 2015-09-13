@@ -154,3 +154,38 @@ function my_list_categories( $output, $args ) {
   return $output;
 }
 ?>
+<?php
+// SVGファイルに対応する
+add_filter( 'upload_mimes', 'my_add_mime_type' );
+if( !function_exists('my_add_mime_type') ) {
+	function my_add_mime_type($mime_types)
+	{
+		$mime_types['svg'] = 'image/svg+xml';
+		$mime_types['svgz'] = 'image/svg+xml';
+		return $mime_types;
+	}
+}
+add_filter('ext2type', 'my_ext2type');
+if( !function_exists('my_ext2type') ) {
+	function my_ext2type($ext2types)
+	{
+		array_push($ext2types['image'], 'svg', 'svgz');
+		return $ext2types;
+	}
+}
+add_filter('wp_generate_attachment_metadata', 'my_wp_generate_attachment_metadata',1,2);
+if( !function_exists('my_wp_generate_attachment_metadata') ) {
+	function my_wp_generate_attachment_metadata($metadata, $attachment_id)
+	{
+		$attachment_post = $post = get_post($attachment_id);
+		$type = $attachment_post->post_mime_type;
+		if ($type === 'image/svg+xml' && empty($metadata)) {
+			$upload_dir = wp_upload_dir();
+			$base_name = basename($attachment_post->guid);
+			$metadata = array(
+				'file' => $upload_dir['subdir'] . '/' . $base_name
+			);
+		}
+		return $metadata;
+	}
+}

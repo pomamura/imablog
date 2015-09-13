@@ -38,6 +38,31 @@ dir {
   -webkit-padding-start: 0 !important;
 }
 
+/*logoと紹介文*/
+.line{
+	fill:#fff;
+	stroke:#000;
+	stroke-width:1;
+	stroke-dasharray: 3000;
+	stroke-dashoffset:3000;
+	animation: DASH 3s ease-in alternate forwards;
+	-webkit-animation:DASH 3s ease-in 0s forwards;
+	-o-animation:DASH 3s ease-in 0s forwards;
+	animation:DASH 5s ease-in 0s forwards;
+}
+
+@-webkit-keyframes DASH{
+	0%{stroke-dashoffset:3000;}
+	80% {stroke-dashoffset:2000;fill:#999;}
+	100%{stroke-dashoffset:0;fill:#777;}
+}
+ 
+@keyframes DASH{
+	0%{stroke-dashoffset:3000;}
+	80% {stroke-dashoffset:2000;fill:#333;}
+	100%{stroke-dashoffset:0;fill:#000;}
+}
+
 /*メニューバーのカテゴリー*/
 
 
@@ -160,11 +185,11 @@ a span {
 /*フッター*/
 
 #footer {
-  background-color: #e7e7e7;
-  border-color: #080808;
-  text-align: center;
-  color: #777;
-  bottom: 1px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
+    text-align: center;
+    color: #777;
+    bottom: 1px;
 }
 #copyright {
   margin: 0;
@@ -520,6 +545,7 @@ ul.wpp-list li:last-child {
   display: block;
   text-decoration: none;
   padding: 5px 5px;
+  color:#777;
 }
 .cat-item a:hover span {
   background: #00a0e9;
@@ -644,7 +670,9 @@ p {
   padding: 10px;
   color: #777;
  }
-
+.giga-octicon:hover{
+  color:#333;
+}
 #footer ul{
   display: inline-block;
 }

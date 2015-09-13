@@ -12,7 +12,6 @@
     <?php wp_title('|',true,'right'); bloginfo('name');?>
   </title>
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
-
   <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
   <!--  コメントの返信をクリックすると、コメントフォームに移動。jsファイル読み込み-->
 <?php if(is_singular() ) wp_enqueue_script("comment-reply");?>
@@ -27,8 +26,8 @@
 </head>
 
 <!--<body>タグに自動的にクラスを付けてくれるテンプレートタグ-->
-
 <body>
+<?php include_once("analyticstracking.php") ?>
   <!-- 全体をcontainerで囲う-->
   <div id="wrapper" class="container">
 
@@ -36,14 +35,10 @@
     <div id="header" class="clearfix">
       <!--logo-->
       <div class="logo">
-        <h1 id="logo">
-<!--        トップページのurlはhome_urlで取得-->
-<!--          ブログの名前、紹介分はbloginfoで表示-->
-          <a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>
-</h1>
-        <p id="description">
-          <?php bloginfo('description'); ?>
-        </p>
+<a href="<?php echo home_url('/'); ?>">
+<p style="display:inline; position:absolute; padding:10px 10px 90px 10px;">　　　　　　　　　　　　　　　　　</p>
+</a>
+<?php get_template_part('svglogo'); //svglogo.phpの読み込み ?>
       </div>
       <!--ナビゲーションメニュー-->
       <nav class="navbar navbar-default">
@@ -57,7 +52,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="http://imablog.xyz/"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#777;"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">

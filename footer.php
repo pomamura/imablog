@@ -13,7 +13,7 @@
 </a>
 </li>
 <li>
-<a href="https://plus.google.com/117234936237259021010/about"><span class="giga-octicon octicon-mark-github"></span>
+<a href="https://github.com/pomemaruko/imablog"><span class="giga-octicon octicon-mark-github"></span>
 </a>
 </li>
 </ul>
